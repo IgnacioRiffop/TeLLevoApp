@@ -1,0 +1,49 @@
+.row{
+  //background: white;
+  min-height: 55px;
+  display: grid;
+  ///gap: 10px;
+}
+
+.row1{
+  //background: purple;
+  min-height: 50px;
+  display: grid;
+  place-items: center;
+  grid-template-columns: 250px 1fr;
+  ///gap: 10px;
+}
+
+.row2{
+  //background: gray;
+  min-height: 120px;
+  display: grid;
+  //place-items: center;
+  grid-template-columns: 1fr 340px 1fr;
+  ///gap: 10px;
+}
+
+.col{
+  font-size: 30px;
+}
+
+.col-sm{
+  font-size: 20px;
+}
+
+.btn-viaje{
+  font-size:35px;
+  width: 340px;
+  height: 100px;
+}
+
+.btn-icon{
+  width: 70px;
+  height: 70px;
+  justify-content: left;
+}
+
+.img-size{
+  max-width: 100%;
+  height: auto;
+}

@@ -1,0 +1,12 @@
+.row{
+    //background: purple;
+    min-height: 50px;
+    display: grid;
+    place-items: center;
+    grid-template-columns: 100px 1fr;
+    ///gap: 10px;
+  }
+
+.img-size{
+    height: 80%;
+}

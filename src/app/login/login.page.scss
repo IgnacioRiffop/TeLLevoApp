@@ -1,0 +1,13 @@
+.row1{
+    background: rgb(5, 8, 62);
+    min-height: 180px;
+    display: grid;
+    place-items: center;
+    grid-template-columns: 1fr;
+    ///gap: 10px;
+}
+
+.col{
+    font-size: 30px;
+    color: white;
+}
