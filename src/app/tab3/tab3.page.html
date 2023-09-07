@@ -1,17 +1,88 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 3
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Hola, Ignacio...</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <div class="row"></div>
 
-  <app-explore-container name="Tab 3 page"></app-explore-container>
+  <div class="row1">
+    <div class="col1">
+      <div style="display: flex; align-items: center;">
+        <p>David Espinosa Aravena</p>
+        <ion-icon class="user" name="person-circle" style="margin-right: 10px;"></ion-icon>         
+      </div>
+    </div>
+  </div>
+
+  <div class="row2">
+    <div class="col2">
+      Calificación
+      <div class="col-sm">
+        <ion-chip>  
+          <ion-label> 4.00 / 136 Viajes</ion-label>
+        </ion-chip>
+        
+      </div>
+    </div>
+
+  </div>
+  
+  <ion-card class="card-flex">
+    <div class="card-content">
+      <div class="contenido">
+        <!-- Imagen en la parte superior con margen derecho -->
+        <img alt="Iniciar Viaje" src="./../../assets/img/1988880_car_front_vehicle_icon.png" class="img img-con-margen"/>
+      
+        <!-- Contenido a la derecha -->
+        <div class="info">
+          <!-- Texto arriba del contenido -->
+          <ion-card-title>WD-JK-46</ion-card-title>
+    
+          <ion-card-header>
+            <ion-card-subtitle>• Capacidad 4 pasajeros</ion-card-subtitle>
+            <ion-card-subtitle>• Hyundai Elantra 2019</ion-card-subtitle>
+          </ion-card-header>
+    
+          <ion-card-content>
+            mantén la información de tu vehículo actualizada.
+          </ion-card-content>
+      
+          <ion-button fill="clear">Configuración</ion-button>
+        </div>
+      </div>
+    </div>
+  </ion-card>
+  
+  
+
+<!--
+  <div class="row" style="min-height: 10px;"></div>
+-->
+  
+  <div class="contenedor">
+    <div class="row1">
+      <div class="col">
+        <div style="display: flex; align-items: center;">
+          <ion-card-content>
+            Garantizamos la protección de los datos y la seguridad de los usuarios de manera prioritaria.
+          </ion-card-content>
+          <img alt="Iniciar Viaje" src="./../../assets/img/img-seguridad.png" class="img-size" />      
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+<!--
+  <ion-card>
+    <img alt="Iniciar Viaje" src="./../../assets/img/img-seguridad.png" class="img-size" />
+    <ion-card-header>
+      <ion-card-title></ion-card-title>
+      <ion-card-subtitle>Invita estudiantes a ir contigo.</ion-card-subtitle>
+    </ion-card-header>
+  
+    <ion-card-content>
+      garantizamos la protección de los datos y la seguridad de los usuarios de manera prioritaria. Se implementan medidas de seguridad sólidas para asegurar la confidencialidad de la información personal y la integridad de las transacciones, brindando a los usuarios una experiencia segura y confiable en todo momento.
+    </ion-card-content>
+  </ion-card>
+-->
+
 </ion-content>
+
+
