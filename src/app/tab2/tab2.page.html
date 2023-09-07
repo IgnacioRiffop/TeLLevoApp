@@ -4,38 +4,13 @@
   <div class="row1">
     <div class="col">
       Historial
+      <div class="col-sm">
+        Aqui encontrarás los viajes realizados.
+      </div>
     </div>
   </div>
-
-  <div class="row" style="min-height: 60px;"></div>
 
   <app-viaje fecha="{{viaje.fecha}}" direccion="{{viaje.direccion}}" salida="{{viaje.salida}}" precio="{{viaje.precio}}" *ngFor="let viaje of viajes"></app-viaje>
-<!--
-  <div class="row2">
-    <div class="col-sm"></div>
-    <div class="col-sm">
-      <ion-button class="btn-viaje">
-        <ion-icon slot="start" name="car-sport-sharp" class="btn-icon"></ion-icon>
-        Nuevo Viaje
-      </ion-button>
-    </div>
-    <div class="col-sm"></div>
-  </div>
-
-  <div class="row" style="min-height: 40px;"></div>
-
-  <div class="row2">
-    <div class="col-sm"></div>
-    <div class="col-sm">
-      <ion-button class="btn-viaje">
-        <ion-icon slot="start" name="cash-sharp" class="btn-icon"></ion-icon>
-        Ganancias
-      </ion-button>
-    </div>
-    <div class="col-sm"></div>
-  </div>
--->
-
 
 
 </ion-content>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-tab1',
@@ -9,7 +10,8 @@ export class Tab1Page {
   arreglo = [];
   arr = new Array();
   email:string='';
-  constructor() {}
+
+  constructor(private router:Router) {}
 
   ngOnInit() {
     var data = localStorage.getItem('email');
@@ -25,5 +27,11 @@ export class Tab1Page {
       })
 
     }
+  }
+  nuevoviaje(){
+    this.router.navigate(['/nuevo-viaje']);
+  }
+  ganancias(){
+    this.router.navigate(['/ganancias']);
   }
 }

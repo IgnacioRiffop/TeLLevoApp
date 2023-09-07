@@ -1,35 +1,38 @@
 .row{
-    //background: white;
-    min-height: 90px;
-    display: grid;
-    ///gap: 10px;
-  }
-  
-  .row1{
-    //background: purple;
-    min-height: 90px;
-    display: grid;
-    place-items: center;
-    grid-template-columns: 1fr;
-    ///gap: 10px;
-  }
-  
-  .row2{
-    //background: gray;
-    min-height: 120px;
-    display: grid;
-    //place-items: center;
-    grid-template-columns: 1fr 340px 1fr;
-    ///gap: 10px;
-  }
-  
-  .col{
-    font-size: 40px;
-  }
-  
-  .col-sm{
-    font-size: 20px;
-  }
+  //background: white;
+  min-height: 50px;
+  display: grid;
+  ///gap: 10px;
+}
+
+.row1{
+  //background: purple;
+  min-height: 50px;
+  display: grid;
+  place-items: start;
+  margin-left: 22px;
+  grid-template-columns: 1fr;
+  ///gap: 10px;
+}
+
+.row2{
+  //background: gray;
+  min-height: 120px;
+  display: grid;
+  //place-items: center;
+  grid-template-columns: 1fr 340px 1fr;
+  ///gap: 10px;
+}
+
+.col{
+  font-size: 30px;
+}
+
+.col-sm{
+  font-size: 20px;
+  color: gray;
+}
+
   
   .btn-viaje{
     font-size:35px;
