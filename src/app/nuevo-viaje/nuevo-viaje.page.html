@@ -1,13 +1,43 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
-    <ion-title>nuevoViaje</ion-title>
+    <ion-title></ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">nuevoViaje</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <div class="row"></div>
+
+  <div class="row1">
+    <div class="col">
+      Nuevo Viaje
+      <div class="col-sm">
+        Ingrese los datos del trayecto
+      </div>
+    </div>
+  </div>
+
+  <div class="row"></div>
+
+  <div style="margin-inline: 40px;">
+    <ion-list>
+      <ion-item>
+        <ion-input label="Dirección" labelPlacement="floating" placeholder="Dirección de destino" style="font-size: large;"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input label="Hora" labelPlacement="floating" type="time" style="font-size: large;"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input label="Cupos" placeholder="Asientos disponibles" labelPlacement="floating" type="number" style="font-size: large;"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input label="Valor" placeholder="Valor por persona" labelPlacement="floating" type="number" style="font-size: large;"></ion-input>
+      </ion-item>
+    </ion-list>
+    <br>
+    <ion-button color="success" expand="block">Registrar viaje</ion-button>
+  </div>
+
 </ion-content>
