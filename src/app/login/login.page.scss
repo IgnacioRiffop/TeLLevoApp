@@ -7,7 +7,30 @@
     ///gap: 10px;
 }
 
+.row2{
+    //background: rgb(5, 8, 62);
+    min-height: 180px;
+    display: grid;
+    place-items: center;
+    grid-template-columns: 1fr;
+    ///gap: 10px;
+}
+
 .col{
-    font-size: 30px;
+    font-size: 40px;
     color: white;
 }
+
+.col2{
+    font-size: 20px;
+    color: rgb(0, 0, 0);
+}
+
+.btn{
+    margin-left: 10px;
+}
+
+.img-size{
+    max-width: 60%;
+    height: auto;
+  }
