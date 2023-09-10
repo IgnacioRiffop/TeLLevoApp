@@ -27,13 +27,14 @@
   <div class="row2" style="font-size: large;">
     <div class="col2">
       ¿No tienes cuenta?
-      <ion-button fill="clear" style="margin-bottom: 16px;">Regístrate</ion-button>
+      <ion-button fill="clear" style="margin-bottom: 16px;" (click)="registro()">Regístrate</ion-button>
     </div>
-  </div>
-
-  <div class="row2">
-    <img alt="Iniciar Viaje" src="./../../assets/img/Logo_DuocUC.png" class="img-size" />
   </div>
 
 
 </ion-content>
+<ion-footer [translucent]="true" style="margin-left: 90px;">
+  <ion-toolbar>
+    <img alt="Iniciar Viaje" src="./../../assets/img/Logo_DuocUC.png" class="img-size" />
+  </ion-toolbar>
+</ion-footer>

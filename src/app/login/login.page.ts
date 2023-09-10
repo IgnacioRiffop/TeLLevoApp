@@ -22,4 +22,8 @@ export class LoginPage implements OnInit {
     localStorage.setItem('email',JSON.stringify(data));
     this.router.navigate(['/tabs/tab1']);
   }
+
+  registro(){
+    this.router.navigate(['/registro']);
+  }
 }
