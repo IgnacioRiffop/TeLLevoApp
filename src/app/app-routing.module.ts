@@ -37,6 +37,10 @@ const routes: Routes = [
   {
     path: 'historial-ganancia',
     loadChildren: () => import('./historial-ganancia/historial-ganancia.module').then( m => m.HistorialGananciaPageModule)
+  },
+  {
+    path: 'viaje-en-curso',
+    loadChildren: () => import('./viaje-en-curso/viaje-en-curso.module').then( m => m.ViajeEnCursoPageModule)
   }
 ];
 @NgModule({

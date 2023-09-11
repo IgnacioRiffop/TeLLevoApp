@@ -21,7 +21,7 @@ export class LoginPage implements OnInit {
       'email':this.email,
       'pass':this.pass
     };
-    if(this.email=='admin' && this.pass=='admin'){
+    if(this.email=='david' && this.pass=='david'){
       localStorage.setItem('email',JSON.stringify(data));
       this.router.navigate(['/tabs/tab1']);
     } else{
