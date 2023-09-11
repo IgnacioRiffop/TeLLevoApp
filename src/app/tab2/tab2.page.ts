@@ -9,9 +9,9 @@ export class Tab2Page {
 
   constructor() {}
   viajes: Viaje[]=[
-    {fecha:'06/09/2023',direccion:'Av mexico 2021',salida:'17:20',precio:'1700'},
-    {fecha:'07/09/2023',direccion:'Av las nieves 02196',salida:'13:40',precio:'2000'},
-    {fecha:'08/09/2023',direccion:'Av las nieves 02196',salida:'15:10',precio:'2000'}
+    {fecha:'08/09/2023',direccion:'Av mexico 2021',salida:'17:20',precio:'1700'},
+    {fecha:'05/09/2023',direccion:'Av las nieves 02196',salida:'13:40',precio:'2000'},
+    {fecha:'02/09/2023',direccion:'Av las nieves 02196',salida:'15:10',precio:'2000'}
   ]
 }
 interface Viaje{
