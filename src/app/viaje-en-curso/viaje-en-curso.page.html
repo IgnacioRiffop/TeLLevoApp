@@ -1,13 +1,63 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
-    <ion-title>viaje-en-curso</ion-title>
+    <ion-title></ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">viaje-en-curso</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <div class="row"></div>
+
+  <div class="row1">
+    <div class="col">
+      Viaje en curso
+      <div class="col-sm">
+        Estos son los datos de tu trayecto
+      </div>
+    </div>
+  </div>
+
+  <div class="row"></div>
+
+  <div style="margin-inline: 40px;">
+    <ion-list>
+      <ion-item>
+        Dirección: Av las nieves 02196
+      </ion-item>
+      <ion-item>
+        Hora: 13:40
+      </ion-item>
+      <ion-item>
+        Valor: $1000
+      </ion-item>
+      <ion-item>
+        Cupos disponibles: 2
+      </ion-item>
+    </ion-list>
+    <br>
+    <img alt="Iniciar Viaje" src="./../../assets/img/Map.png" class="img-con-margen"/>
+
+    <div style="margin-top: 5%;">
+      <ion-button color="success">Comenzar viaje</ion-button>
+      <ion-button color="danger" (click)="inicio()">Cancelar viaje</ion-button>
+    </div>
+
+  </div>
+
+  <div class="row1" style="margin-top: 5%;">
+    <div class="col">
+      Pasajeros
+    </div>
+    <ion-list>
+      <ion-item>
+        Ignacio Riffo
+      </ion-item>
+      <ion-item>
+        Darliett Candia
+      </ion-item>
+    </ion-list>
+  </div>
+
 </ion-content>
