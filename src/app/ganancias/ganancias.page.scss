@@ -1,0 +1,38 @@
+.row{
+    //background: white;
+    min-height: 20px;
+    display: grid;
+    ///gap: 10px;
+  }
+  
+  .row1{
+    //background: purple;
+    min-height: 50px;
+    display: grid;
+    place-items: start;
+    margin-left: 22px;
+    grid-template-columns: 1fr;
+    ///gap: 10px;
+  }
+  
+  .col{
+    font-size: 30px;
+  }
+  
+  .col-sm{
+    font-size: 20px;
+    color: gray;
+  }
+
+.row-card{
+    //background: purple;
+    min-height: 50px;
+    display: grid;
+    place-items: center;
+    grid-template-columns: 100px 1fr;
+    ///gap: 10px;
+  }
+
+.img-size{
+    height: 80%;
+}

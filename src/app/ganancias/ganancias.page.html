@@ -1,13 +1,40 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
-    <ion-title>ganancias</ion-title>
+    <ion-title></ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">ganancias</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <div class="row"></div>
+  <div class="row1">
+    <div class="col">
+      Ganancias
+      <div class="col-sm">
+        Resumen de pagos recibidos
+      </div>
+    </div>
+  </div>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Total mensual</ion-card-title>
+      <ion-card-subtitle></ion-card-subtitle>
+    </ion-card-header>
+  
+    <ion-card-content>
+      <div class="row-card">
+        <img src="./../../assets/img/1061163_cash_checkout_credit card_journey_money_icon.png" alt="" class="img-size">
+        <div style="margin-inline: 5%;">
+          <p style="font-size: xx-large;">$20.000</p>
+          <p>La información se renovará el día 1 de cada mes.</p>
+        </div>
+      </div>
+    </ion-card-content>
+  </ion-card>
+
+
+
 </ion-content>
