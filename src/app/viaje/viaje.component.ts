@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { IonDatetime } from '@ionic/angular';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-viaje',
@@ -11,8 +11,12 @@ export class ViajeComponent  implements OnInit {
   @Input() direccion: string='';
   @Input() salida: string='';
   @Input() precio: string='';
-  constructor() { }
+  constructor(private router:Router) { }
 
   ngOnInit() {}
 
+  
+  pasajeros(){
+    this.router.navigate(['/pasajeros']);
+  }
 }
