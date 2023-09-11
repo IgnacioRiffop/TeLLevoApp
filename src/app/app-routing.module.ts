@@ -41,7 +41,13 @@ const routes: Routes = [
   {
     path: 'viaje-en-curso',
     loadChildren: () => import('./viaje-en-curso/viaje-en-curso.module').then( m => m.ViajeEnCursoPageModule)
+  },
+  {
+    path: 'home2',
+    loadChildren: () => import('./home2/home2.module').then( m => m.Home2PageModule)
   }
+
+
 ];
 @NgModule({
   imports: [
