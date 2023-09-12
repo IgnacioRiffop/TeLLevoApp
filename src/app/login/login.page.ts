@@ -24,7 +24,12 @@ export class LoginPage implements OnInit {
     if(this.email=='david' && this.pass=='david'){
       localStorage.setItem('email',JSON.stringify(data));
       this.router.navigate(['/tabs/tab1']);
-    } else{
+    
+    }else if(this.email=='ignacio' && this.pass=='ignacio'){
+      localStorage.setItem('email',JSON.stringify(data));
+      this.router.navigate(['/home2']);
+    }
+     else{
       let men = this.toastCtrl.create({
         message: "Nombre de usuario o password incorrecto",
         duration: 5000,

@@ -59,7 +59,19 @@ const routes: Routes = [
   {
     path: 'historial2',
     loadChildren: () => import('./historial2/historial2.module').then( m => m.Historial2PageModule)
+  },  {
+    path: 'buscar-viaje',
+    loadChildren: () => import('./buscar-viaje/buscar-viaje.module').then( m => m.BuscarViajePageModule)
+  },
+  {
+    path: 'viaje-en-curso-p',
+    loadChildren: () => import('./viaje-en-curso-p/viaje-en-curso-p.module').then( m => m.ViajeEnCursoPPageModule)
+  },
+  {
+    path: 'escoger-viaje',
+    loadChildren: () => import('./escoger-viaje/escoger-viaje.module').then( m => m.EscogerViajePageModule)
   }
+
 
 
 
