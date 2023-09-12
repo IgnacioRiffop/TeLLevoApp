@@ -4,8 +4,14 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
+    redirectTo: 'splash',
+    pathMatch: 'full'
+  },
+  {
+    path: '',
     loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
   },
+  
   {
     path: 'login',
     loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
@@ -45,7 +51,16 @@ const routes: Routes = [
   {
     path: 'home2',
     loadChildren: () => import('./home2/home2.module').then( m => m.Home2PageModule)
+  },
+  {
+    path: 'cuenta2',
+    loadChildren: () => import('./cuenta2/cuenta2.module').then( m => m.Cuenta2PageModule)
+  },
+  {
+    path: 'historial2',
+    loadChildren: () => import('./historial2/historial2.module').then( m => m.Historial2PageModule)
   }
+
 
 
 ];

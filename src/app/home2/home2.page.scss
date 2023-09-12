@@ -15,8 +15,16 @@
     ///gap: 10px;
   }
 
-
-
+  .ion-tabs {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+  }
+  
+  .selected {
+    color: #007bff; /* Color de fondo cuando la pestaña está seleccionada */
+     /* Color del texto cuando la pestaña está seleccionada */
+  }
 
 
   .col{

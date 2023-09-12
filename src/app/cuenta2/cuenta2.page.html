@@ -1,0 +1,62 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title></ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-tabs>
+    <!-- Otras pestañas -->
+    <ion-tab-bar slot="bottom">
+      <ion-tab-button [routerLink]="['/home2']">
+        <ion-icon aria-hidden="true" name="home"></ion-icon>
+        <ion-label>Inicio</ion-label>
+      </ion-tab-button>
+      <!-- Otras pestañas -->
+      <ion-tab-button [routerLink]="['/historial2']">
+        <ion-icon aria-hidden="true" name="document-text"></ion-icon>
+        <ion-label>Historial</ion-label>
+      </ion-tab-button>
+      <!-- Pestaña "Cuenta" que lleva a "Cuenta2" -->
+      <ion-tab-button [routerLink]="['/cuenta2']" routerLinkActive="selected">
+        <ion-icon aria-hidden="true" name="person"></ion-icon>
+        <ion-label>Cuenta</ion-label>
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
+
+
+  <div class="row"></div>
+
+  <div class="row1">
+    <div class="col1">
+      <div style="display: flex; align-items: center;">
+        <p>Ignacio Riffo Peña</p>
+        <img alt="" name="person-circle" style="margin-right: 7%;" src="./../../assets/img/403017_avatar_default_head_person_unknown_icon.png" class="img img-con-margen"/>
+      </div>
+    </div>
+  </div>
+  
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Datos Personales</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item>
+          <ion-label>Email: Ig.riffo@duocuc.cl</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>Celular: 983027493</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>Viajes: 3</ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+  
+  <ion-button color="secondary" expand="block" style="margin-inline: 15%; margin-bottom: 5%;">Editar datos</ion-button>
+  <ion-button color="danger" expand="block" style="margin-inline: 15%;" (click)="login()">Cerrar Sesión</ion-button>
+  
+</ion-content>
