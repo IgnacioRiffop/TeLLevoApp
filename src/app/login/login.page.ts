@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastController } from '@ionic/angular';
 import { ServicioFirebaseService } from '../services/servicio-firebase.service';
+import { Vehiculo } from '../interface/vehiculo';
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
@@ -17,6 +18,21 @@ export class LoginPage implements OnInit {
 
   recuperar() {
     this.servFire.getVehiculos();
+  }
+
+  grabarVehiculo(){
+    let mi_Vehiculo : Vehiculo={
+      patente: 'KD-AS-VV',
+      capacidad: 4,
+      anio: 2020,
+      modelo: 'Explorer',
+      marca: 'Ford'
+    };
+    this.servFire.grabarVehiculo(mi_Vehiculo).then(()=>{
+      console.log("Grabo");
+    }).catch((e)=>{
+      console.log(e);
+    });
   }
 
 
