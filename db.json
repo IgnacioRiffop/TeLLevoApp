@@ -1,0 +1,9 @@
+{
+    "vehiculos":[
+        {"id":1,"patente":"WD-JK-46","modelo":"Elantra","anio":2019,"capacidad":4,"marca":"Hyundai"},
+        {"id":2,"patente":"JK-WD-64","modelo":"Accent","anio":2023,"capacidad":5,"marca":"Hyundai"}
+    ]
+
+
+
+}

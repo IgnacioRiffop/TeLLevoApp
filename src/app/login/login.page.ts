@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastController } from '@ionic/angular';
+import { ServicioFirebaseService } from '../services/servicio-firebase.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
@@ -9,10 +10,15 @@ import { ToastController } from '@ionic/angular';
 export class LoginPage implements OnInit {
   email:string='';
   pass:string='';
-  constructor(private router:Router, private toastCtrl: ToastController) { }
+  constructor(private router:Router, private toastCtrl: ToastController,private servFire:ServicioFirebaseService) { }
 
   ngOnInit() {
   }
+
+  recuperar() {
+    this.servFire.getVehiculos();
+  }
+
 
   async tab1(){
     console.log(this.email);
