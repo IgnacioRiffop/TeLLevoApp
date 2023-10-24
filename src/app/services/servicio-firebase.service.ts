@@ -27,5 +27,7 @@ export class ServicioFirebaseService {
     return this.vehiculoColeccion.add(Vehiculo);
   }
 
-  eliminarReceta(id : String){}
+  eliminarVehiculo(id : string){
+    return this.vehiculoColeccion.doc(id).delete();
+  }
 }

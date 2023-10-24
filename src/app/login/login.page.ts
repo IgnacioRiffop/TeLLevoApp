@@ -35,6 +35,14 @@ export class LoginPage implements OnInit {
     });
   }
 
+  eliminarVehiculo(){
+    this.servFire.eliminarVehiculo('KjKxjNHicwXzwBAS9eqR').then(()=>{
+      console.log("elimino");
+    }).catch((e)=>{
+      console.log(e);
+    })
+  }
+
 
   async tab1(){
     console.log(this.email);
