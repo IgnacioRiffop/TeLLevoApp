@@ -16,6 +16,11 @@ export class LoginPage implements OnInit {
   ngOnInit() {
   }
 
+  // METODOS VEHICULO
+  getVehiculo(){
+    this.servFire.getVehiculo('JjScZBrkWDl60aQvGGLA');
+  }
+
   recuperar() {
     this.servFire.getVehiculos();
   }
@@ -41,6 +46,11 @@ export class LoginPage implements OnInit {
     }).catch((e)=>{
       console.log(e);
     })
+  }
+
+  //METODOS USUARIO
+  getUsuario(){
+    this.servFire.getUsuario('ig@gmail.com');
   }
 
 
