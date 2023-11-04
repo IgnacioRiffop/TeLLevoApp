@@ -8,6 +8,8 @@ import { LoginPageRoutingModule } from './login-routing.module';
 
 import { LoginPage } from './login.page';
 import { ModuloModule } from '../modulo/modulo.module';
+import { CustomInputComponent } from '../custom-input/custom-input.component';
+import { provideAuth, getAuth } from '@angular/fire/auth';
 
 @NgModule({
   imports: [
@@ -15,8 +17,8 @@ import { ModuloModule } from '../modulo/modulo.module';
     FormsModule,
     IonicModule,
     LoginPageRoutingModule,
-    ModuloModule
+    ModuloModule,
   ],
-  declarations: [LoginPage]
+  declarations: [LoginPage, CustomInputComponent]
 })
 export class LoginPageModule {}

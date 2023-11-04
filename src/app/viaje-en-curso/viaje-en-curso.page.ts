@@ -30,10 +30,13 @@ export class ViajeEnCursoPage implements OnInit {
     this.leafletMap.setView([51.505, -0.09], 13);
 
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    maxZoom: 19,
+    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
     }).addTo(this.leafletMap);
-    L.marker([51.5, -0.09]).addTo(this.leafletMap)
-    .bindPopup('A pretty CSS popup.<br> Easily customizable.')
-    .openPopup();
+    var redicon = L.icon({
+      iconUrl : './../../assets/img/marcador.png',
+      iconSize: [35, 30],
+    });
+    L.marker([51.5, -0.09], {icon: redicon}).addTo(this.leafletMap);
   }
 }

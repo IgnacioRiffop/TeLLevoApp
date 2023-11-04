@@ -4,6 +4,7 @@ import { Vehiculo } from '../interface/vehiculo';
 import { Usuario } from '../interface/usuario';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { AngularFirestoreCollection } from '@angular/fire/compat/firestore';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
 
 @Injectable({
   providedIn: 'root'
@@ -12,10 +13,26 @@ export class ServicioFirebaseService {
 
   private vehiculoColeccion : AngularFirestoreCollection<Vehiculo>;
   private usuarioColeccion : AngularFirestoreCollection<Usuario>;
-  constructor(private afs: AngularFirestore) {
+
+  constructor(private afs: AngularFirestore, private auth: AngularFireAuth) {
     this.vehiculoColeccion = afs.collection<Vehiculo>('Vehiculo')
     this.usuarioColeccion = afs.collection<Usuario>('Usuario')
-   }
+  }
+
+  // AUTENTICACION
+  login(user: Usuario){
+    return this.auth.signInWithEmailAndPassword(user.email, user.pass)
+  }
+
+  registro(user: Usuario){
+    return this.auth.createUserWithEmailAndPassword(user.email, user.pass)
+  }
+  // FIN AUTENTICACION
+
+
+
+
+
 
   // METODOS VEHICULO
   getVehiculos(){

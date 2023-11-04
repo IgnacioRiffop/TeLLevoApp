@@ -3,6 +3,9 @@ import { Router } from '@angular/router';
 import { ToastController } from '@ionic/angular';
 import { ServicioFirebaseService } from '../services/servicio-firebase.service';
 import { Vehiculo } from '../interface/vehiculo';
+
+import { signInWithEmailAndPassword,Auth,createUserWithEmailAndPassword} from '@angular/fire/auth';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
@@ -11,10 +14,12 @@ import { Vehiculo } from '../interface/vehiculo';
 export class LoginPage implements OnInit {
   email:string='';
   pass:string='';
-  constructor(private router:Router, private toastCtrl: ToastController,private servFire:ServicioFirebaseService) { }
+  constructor(private router:Router, private toastCtrl: ToastController,private servFire:ServicioFirebaseService, private fireAuth: Auth) { }
 
   ngOnInit() {
   }
+
+
 
   // METODOS VEHICULO
   getVehiculo(){
@@ -61,11 +66,11 @@ export class LoginPage implements OnInit {
       'email':this.email,
       'pass':this.pass
     };
-    if(this.email=='david' && this.pass=='david'){
+    if(this.email=='da.espinosa@duocuc.cl' && this.pass=='david'){
       localStorage.setItem('email',JSON.stringify(data));
       this.router.navigate(['/tabs/tab1']);
     
-    }else if(this.email=='ignacio' && this.pass=='ignacio'){
+    }else if(this.email=='ig.riffo@duocuc.cl' && this.pass=='ignacio'){
       localStorage.setItem('email',JSON.stringify(data));
       this.router.navigate(['/home2']);
     }
