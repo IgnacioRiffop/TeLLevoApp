@@ -10,6 +10,7 @@ import { AppComponent } from './app.component';
 
 //FIREBASE
 import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { environment } from 'src/environments/environment';
 // IMPORTADAS POR YOCH DEV
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
@@ -35,7 +36,7 @@ import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
     ReactiveFormsModule,
     provideAuth(()=>getAuth()),
   ],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy, },AuthModule],
+  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy, },AuthModule,AngularFireAuth],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

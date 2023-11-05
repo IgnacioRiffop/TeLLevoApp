@@ -14,23 +14,24 @@
 
   <div style="margin-inline: 40px;">
   <ion-list>
+    <!--
     <ion-item>
       <ion-input label="Nombre" labelPlacement="floating" placeholder="Ingrese su nombre" style="font-size: large;"></ion-input>
     </ion-item>
     <ion-item>
       <ion-input label="Apellido" labelPlacement="floating" placeholder="Ingrese su apellido" style="font-size: large;"></ion-input>
+    </ion-item>-->
+    <ion-item>
+      <ion-input label="Email" [(ngModel)]="user.email" labelPlacement="floating" placeholder="Ingrese email" type="email" style="font-size: large;"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-input label="Email" labelPlacement="floating" placeholder="Ingrese email" type="email" style="font-size: large;"></ion-input>
+      <ion-input label="Contraseña" [(ngModel)]="user.password" labelPlacement="floating" placeholder="Ingrese contraseña" type="password" style="font-size: large;"></ion-input>
     </ion-item>
-    <ion-item>
-      <ion-input label="Contraseña" labelPlacement="floating" placeholder="Ingrese contraseña" type="password" style="font-size: large;"></ion-input>
-    </ion-item>
-    <ion-item>
+    <!--<ion-item>
       <ion-input label="Repita contraseña" labelPlacement="floating" placeholder="Ingrese contraseña" type="password" style="font-size: large;"></ion-input>
-    </ion-item>
+    </ion-item>-->
   </ion-list>
-  <ion-button expand="block" style="font-size: large;" (click)="loginreg()">Registrarse</ion-button>
+  <ion-button expand="block" style="font-size: large;" (click)="onRegister()">Registrarse</ion-button>
   </div>
 
   <div class="row3" style="font-size: large;">

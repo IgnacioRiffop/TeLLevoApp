@@ -4,6 +4,9 @@ import { Router } from '@angular/router';
 import { ToastController } from '@ionic/angular';
 import { customValidators } from '../utils/custom-validators';
 
+import { AuthService } from '../services/auth.service';
+import { User } from '../shared/user.class';
+
 @Component({
   selector: 'app-registro',
   templateUrl: './registro.page.html',
@@ -12,6 +15,7 @@ import { customValidators } from '../utils/custom-validators';
 export class RegistroPage implements OnInit {
 
   //FORMULARIO
+  /*
   form = new FormGroup({
     nombre: new FormControl('', [Validators.required, Validators.minLength(4)]),
     apellido: new FormControl('', [Validators.required, Validators.minLength(4)]),
@@ -27,14 +31,28 @@ export class RegistroPage implements OnInit {
     ])
 
     this.form.controls.confirmpass.updateValueAndValidity();
-  }
+  }*/
 
-  constructor(private router:Router,  private toastCtrl: ToastController) { }
+  user: User = new User();
+
+  constructor(private router:Router,  private toastCtrl: ToastController, private authSvc: AuthService) { }
 
   ngOnInit() {
-    this.confirmPassValidator()
+    //this.confirmPassValidator()
   }
 
+  async onRegister(){
+    const user = await this.authSvc.onRegister(this.user);
+    if (user) {
+      let men = this.toastCtrl.create({
+        message: "Registro realizado correctamente!",
+        duration: 5000,
+        position: 'top'
+      });
+      (await men).present();
+      this.router.navigate(['/login']);
+    }
+  }
 
 
   login(){
