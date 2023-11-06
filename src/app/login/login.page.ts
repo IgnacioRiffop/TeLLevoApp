@@ -3,8 +3,10 @@ import { Router } from '@angular/router';
 import { ToastController } from '@ionic/angular';
 import { ServicioFirebaseService } from '../services/servicio-firebase.service';
 import { Vehiculo } from '../interface/vehiculo';
-
 import { signInWithEmailAndPassword,Auth,createUserWithEmailAndPassword} from '@angular/fire/auth';
+
+import { AuthService } from '../services/auth.service';
+import { User } from '../shared/user.class';
 
 @Component({
   selector: 'app-login',
@@ -14,11 +16,20 @@ import { signInWithEmailAndPassword,Auth,createUserWithEmailAndPassword} from '@
 export class LoginPage implements OnInit {
   email:string='';
   pass:string='';
-  constructor(private router:Router, private toastCtrl: ToastController,private servFire:ServicioFirebaseService, private fireAuth: Auth) { }
+
+  user : User = new User();
+  constructor(private router:Router, private toastCtrl: ToastController, private authSvc: AuthService, private servFire:ServicioFirebaseService, private fireAuth: Auth) { }
 
   ngOnInit() {
   }
 
+  async onLogin() {
+    const user = await this.authSvc.onLogin(this.user);
+    if (user) {
+      console.log('exitosamente logeado!')
+      this.router.navigate(['/tabs/tab1']);
+    }
+  }
 
 
   // METODOS VEHICULO
@@ -58,7 +69,7 @@ export class LoginPage implements OnInit {
     this.servFire.getUsuario('ig@gmail.com');
   }
 
-
+  /*
   async tab1(){
     console.log(this.email);
     console.log(this.pass);
@@ -82,7 +93,7 @@ export class LoginPage implements OnInit {
       });
       (await men).present();
     }
-  }
+  }*/
 
   registro(){
     this.router.navigate(['/registro']);
