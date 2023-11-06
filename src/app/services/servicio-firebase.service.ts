@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 
 import { Vehiculo } from '../interface/vehiculo';
 import { Usuario } from '../interface/usuario';
+import { Viaje } from '../interface/viaje';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { AngularFirestoreCollection } from '@angular/fire/compat/firestore';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
@@ -13,10 +14,12 @@ export class ServicioFirebaseService {
 
   private vehiculoColeccion : AngularFirestoreCollection<Vehiculo>;
   private usuarioColeccion : AngularFirestoreCollection<Usuario>;
+  private viajeColeccion : AngularFirestoreCollection<Viaje>;
 
   constructor(private afs: AngularFirestore, private auth: AngularFireAuth) {
     this.vehiculoColeccion = afs.collection<Vehiculo>('Vehiculo')
     this.usuarioColeccion = afs.collection<Usuario>('Usuario')
+    this.viajeColeccion = afs.collection<Viaje>('Viaje')
   }
 
   async grabarUsuario(uid: string, nombre: string, apellido:string, celular:string){
@@ -68,6 +71,34 @@ export class ServicioFirebaseService {
       }
     )
   }
+
+
+  getViajes(){
+    this.afs.collection('Viaje').valueChanges().subscribe(
+      (res)=>{
+        console.log("ok");
+        console.log(res);
+      }
+    )
+  }
+
+  grabarViaje(Viaje : Viaje){
+    return this.viajeColeccion.add(Viaje);
+  }
+
+  eliminarViaje(id : string){
+    return this.viajeColeccion.doc(id).delete();
+  }
+
+  getViaje(id : string){
+    return this.viajeColeccion.doc(id).valueChanges().subscribe(
+      (res)=>{
+        console.log("get");
+        console.log(res);
+      }
+    )
+  }
+
 
   //METODOS USUARIO
   /*

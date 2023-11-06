@@ -22,19 +22,23 @@
   <div class="row"></div>
 
   <div style="margin-inline: 40px;">
-    <ion-list>
-      <ion-item>
-        <ion-input label="Dirección" labelPlacement="floating" placeholder="Dirección de destino" style="font-size: large;"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-input label="Hora" labelPlacement="floating" type="time" style="font-size: large;"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-input label="Valor" placeholder="Valor por persona" labelPlacement="floating" type="number" style="font-size: large;"></ion-input>
-      </ion-item>
-    </ion-list>
-    <br>
-    <ion-button color="success" expand="block" (click)="viajeencurso()">Registrar viaje</ion-button>
+    <form (ngSubmit)="grabarViaje()">
+      <ion-list>
+        <ion-item>
+          <ion-label position="floating">Dirección</ion-label>
+          <ion-input [(ngModel)]="direccion" name="direccion" type="text" required></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Hora</ion-label>
+          <ion-input [(ngModel)]="hora" name="hora" type="number" required></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Valor</ion-label>
+          <ion-input [(ngModel)]="valor" name="valor" type="number" required></ion-input>
+        </ion-item>
+      </ion-list>
+      <br>
+      <ion-button type="submit" color="success" expand="block" (click)="viajeencurso()">Registrar viaje</ion-button>
+    </form>
   </div>
-
 </ion-content>
