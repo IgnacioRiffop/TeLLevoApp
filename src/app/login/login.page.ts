@@ -65,9 +65,10 @@ export class LoginPage implements OnInit {
   }
 
   //METODOS USUARIO
+  /*
   getUsuario(){
     this.servFire.getUsuario('ig@gmail.com');
-  }
+  }*/
 
   /*
   async tab1(){

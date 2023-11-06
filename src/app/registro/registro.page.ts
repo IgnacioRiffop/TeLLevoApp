@@ -5,6 +5,7 @@ import { ToastController } from '@ionic/angular';
 import { customValidators } from '../utils/custom-validators';
 
 import { AuthService } from '../services/auth.service';
+import { ServicioFirebaseService } from '../services/servicio-firebase.service';
 import { User } from '../shared/user.class';
 
 @Component({
@@ -35,7 +36,7 @@ export class RegistroPage implements OnInit {
 
   user: User = new User();
 
-  constructor(private router:Router,  private toastCtrl: ToastController, private authSvc: AuthService) { }
+  constructor(private router:Router,  private toastCtrl: ToastController, private authSvc: AuthService, private servFire:ServicioFirebaseService) { }
 
   ngOnInit() {
     //this.confirmPassValidator()
@@ -43,6 +44,14 @@ export class RegistroPage implements OnInit {
 
   async onRegister(){
     const user = await this.authSvc.onRegister(this.user);
+    const uid = user.user.uid;
+
+    const nombre = this.user.nombre;
+    const apellido = this.user.apellido;
+
+    // Agrega el nombre y apellido a la base de datos utilizando el UID
+    this.servFire.grabarUsuario(uid,nombre,apellido);
+
     if (user) {
       let men = this.toastCtrl.create({
         message: "Registro realizado correctamente!",

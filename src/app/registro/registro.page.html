@@ -14,13 +14,13 @@
 
   <div style="margin-inline: 40px;">
   <ion-list>
-    <!--
+    
     <ion-item>
-      <ion-input label="Nombre" labelPlacement="floating" placeholder="Ingrese su nombre" style="font-size: large;"></ion-input>
+      <ion-input label="Nombre" [(ngModel)]="user.nombre" labelPlacement="floating" placeholder="Ingrese su nombre" style="font-size: large;"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-input label="Apellido" labelPlacement="floating" placeholder="Ingrese su apellido" style="font-size: large;"></ion-input>
-    </ion-item>-->
+      <ion-input label="Apellido" [(ngModel)]="user.apellido" labelPlacement="floating" placeholder="Ingrese su apellido" style="font-size: large;"></ion-input>
+    </ion-item>
     <ion-item>
       <ion-input label="Email" [(ngModel)]="user.email" labelPlacement="floating" placeholder="Ingrese email" type="email" style="font-size: large;"></ion-input>
     </ion-item>

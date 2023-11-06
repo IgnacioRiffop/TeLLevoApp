@@ -19,20 +19,28 @@ export class ServicioFirebaseService {
     this.usuarioColeccion = afs.collection<Usuario>('Usuario')
   }
 
-  // AUTENTICACION
+  async grabarUsuario(uid: string, nombre: string, apellido:string){
+    try {
+      const datauser = this.afs.collection('Usuario').doc(uid);
+
+      await datauser.set({nombre: nombre, apellido:apellido});
+      console.log('Nombre y apellidos agregados')
+    } catch (error) {
+      console.error('Error al agregar nombre y apellido a la base de datos', error);
+    }
+
+  }
+
+  // AUTENTICACION 
+  /*
   login(user: Usuario){
     return this.auth.signInWithEmailAndPassword(user.email, user.pass)
   }
 
   registro(user: Usuario){
     return this.auth.createUserWithEmailAndPassword(user.email, user.pass)
-  }
+  }*/
   // FIN AUTENTICACION
-
-
-
-
-
 
   // METODOS VEHICULO
   getVehiculos(){
@@ -62,6 +70,7 @@ export class ServicioFirebaseService {
   }
 
   //METODOS USUARIO
+  /*
   getUsuario(email: string){
   const query = this.usuarioColeccion.ref.where('email', '==', email);
   query.get().then(querySnapshot => {
@@ -76,5 +85,5 @@ export class ServicioFirebaseService {
           }
       });
     return this.usuarioColeccion.ref.where('email', '==', email).get();
-  }
+  }*/
 }
