@@ -19,11 +19,11 @@ export class ServicioFirebaseService {
     this.usuarioColeccion = afs.collection<Usuario>('Usuario')
   }
 
-  async grabarUsuario(uid: string, nombre: string, apellido:string){
+  async grabarUsuario(uid: string, nombre: string, apellido:string, celular:string){
     try {
       const datauser = this.afs.collection('Usuario').doc(uid);
 
-      await datauser.set({nombre: nombre, apellido:apellido});
+      await datauser.set({nombre: nombre, apellido:apellido, celular:celular});
       console.log('Nombre y apellidos agregados')
     } catch (error) {
       console.error('Error al agregar nombre y apellido a la base de datos', error);
