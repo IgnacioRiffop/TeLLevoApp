@@ -34,4 +34,7 @@ export class Tab1Page {
   ganancias(){
     this.router.navigate(['/ganancias']);
   }
+  buscarviaje(){
+    this.router.navigate(['/escoger-viaje']);
+  }
 }

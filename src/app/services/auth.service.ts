@@ -14,6 +14,21 @@ export class AuthService {
   constructor(public afAuth: AngularFireAuth, private toastCtrl: ToastController, private router: Router) {
     afAuth.authState.subscribe( user => (this.isLogged = user));
   }
+  // get id
+  async getLoggedUserId(): Promise<string | null> {
+    return new Promise<string | null>((resolve, reject) => {
+      this.afAuth.authState.subscribe(user => {
+        if (user) {
+          const uid = user.uid;
+          resolve(uid);
+        } else {
+          resolve(null);
+        }
+      });
+    });
+  }
+
+
 
   // Login
  async onLogin(user: User){
