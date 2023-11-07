@@ -1,0 +1,60 @@
+.row{
+    min-height: 20px;
+    display: grid;
+    ///gap: 10px;
+  }
+
+.col{
+  font-size: 30px;
+}
+
+  .row1{
+    min-height: 150px;
+    display: grid;
+    place-items: center;
+    grid-template-columns: 1fr;
+  }
+
+  .col1{
+    margin-left: 20px;
+    font-size: 30px;
+  }
+
+ .col2{
+    margin-left: 20px;
+ }
+
+
+  .contenedor {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #fff; /* Puedes ajustar el color de fondo según tus preferencias */
+    /*box-shadow: 0px -5px 10px rgba(0, 0, 0, 0.2); /* Agrega una sombra si lo deseas */
+    z-index: 999; /* Asegura que el contenido esté por encima de otros elementos */
+  }
+  
+  /* CSS para la imagen */
+.img-con-margen {
+  width: 130px;
+  height: 130px;
+  margin-left: 7%; /* Margen derecho para la imagen */
+}
+
+/* CSS para la tarjeta y el contenido */
+.card-flex {
+  display: flex;
+  flex-direction: column; /* Apila los elementos verticalmente */
+  align-items: center; /* Centra horizontalmente */
+  text-align: center;
+}
+
+/* CSS para el contenido */
+.contenido {
+  display: flex;
+  flex-direction: column; /* Apila los elementos verticalmente */
+  align-items: center; /* Centra horizontalmente */
+  width: 100%; /* Estira el contenido a lo ancho de la tarjeta */
+}
+  
