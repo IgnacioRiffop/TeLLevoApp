@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import * as L from "leaflet";
+import { ServicioFirebaseService } from '../services/servicio-firebase.service';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-viaje-en-curso',
@@ -15,9 +17,41 @@ export class ViajeEnCursoPage implements OnInit {
   lng: number = 20.1683;
   
   zoom: number = 8;
-  constructor(private router:Router) { }
+  constructor(private router:Router, private servFire: ServicioFirebaseService, private authSvc: AuthService) { }
 
-  ngOnInit() {
+  uid: string;
+
+  async obtenerUID() {
+    try {
+      const uid = await this.authSvc.getLoggedUserId();
+      if (uid) {
+        this.uid = uid; // Asigna el UID a la variable uid de la página
+        console.log('UID del usuario logueado:', this.uid);
+      } else {
+        console.log('Ningún usuario logueado.');
+      }
+    } catch (error) {
+      console.error('Error al obtener el UID del usuario logueado', error);
+    }
+  }
+
+  viajes: any[];
+
+  getViaje(){
+    this.servFire.buscarViajesPorIdUserYEstado('idDelUsuario', true).subscribe(viajes => {
+      if (viajes.length > 0) {
+        this.viajes = viajes;
+        console.log('Datos de los viajes:', viajes);
+        // Haz lo que necesites con los datos
+      } else {
+        console.log('No se encontraron viajes con los criterios especificados');
+      }
+    });
+  }
+
+  async ngOnInit() {
+    this.getViaje();
+    await this.obtenerUID();
     this.loadLeafletMap();
   }
 

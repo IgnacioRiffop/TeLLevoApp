@@ -6,6 +6,7 @@ import { Viaje } from '../interface/viaje';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { AngularFirestoreCollection } from '@angular/fire/compat/firestore';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -32,6 +33,16 @@ export class ServicioFirebaseService {
       console.error('Error al agregar nombre y apellido a la base de datos', error);
     }
 
+  }
+
+  buscarViajesPorIdUserYEstado(iduser: string, estado: boolean): Observable<any[]> {
+    const viajesCollection = this.afs.collection('viajes', ref => {
+      return ref
+        .where('iduser', '==', iduser)
+        .where('estado', '==', estado);
+    });
+  
+    return viajesCollection.valueChanges();
   }
 
   // AUTENTICACION 
