@@ -36,7 +36,7 @@ export class ServicioFirebaseService {
   }
 
   buscarViajesPorIdUserYEstado(iduser: string, estado: boolean): Observable<any[]> {
-    const viajesCollection = this.afs.collection('viajes', ref => {
+    const viajesCollection = this.afs.collection('Viaje', ref => {
       return ref
         .where('iduser', '==', iduser)
         .where('estado', '==', estado);

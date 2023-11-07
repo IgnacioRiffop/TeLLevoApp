@@ -38,7 +38,7 @@ export class ViajeEnCursoPage implements OnInit {
   viajes: any[];
 
   getViaje(){
-    this.servFire.buscarViajesPorIdUserYEstado('idDelUsuario', true).subscribe(viajes => {
+    this.servFire.buscarViajesPorIdUserYEstado(this.uid, true).subscribe(viajes => {
       if (viajes.length > 0) {
         this.viajes = viajes;
         console.log('Datos de los viajes:', viajes);
@@ -50,10 +50,24 @@ export class ViajeEnCursoPage implements OnInit {
   }
 
   async ngOnInit() {
-    this.getViaje();
     await this.obtenerUID();
     this.loadLeafletMap();
+    this.servFire.buscarViajesPorIdUserYEstado(this.uid, true).subscribe(viajes => {
+      if (viajes.length > 0) {
+        this.viajes = viajes;
+        const viaje = this.viajes[0];
+        // Ahora puedes trabajar con 'this.viajes' y 'primerViaje' de manera segura
+      } else {
+        console.log('No se encontraron viajes con los criterios especificados');
+      }
+    });
+    /*
+    const primerViaje = this.viajes[0];
+    const direccion = primerViaje.direccion;
+    const hora = primerViaje.hora;
+    const iduser = primerViaje.iduser;*/
   }
+  
 
   inicio(){
     this.router.navigate(['/tabs/tab1']);

@@ -27,21 +27,24 @@ crossorigin=""/>
   <div class="row"></div>
 
   <div style="margin-inline: 40px;">
-    <ion-list>
-      <ion-item>
-        Dirección: Av las nieves 02196
-      </ion-item>
-      <ion-item>
-        Hora: 13:40
-      </ion-item>
-      <ion-item>
-        Valor: $1000
-      </ion-item>
-      <ion-item>
-        Cupos disponibles: 2
-      </ion-item>
-    </ion-list>
-    <br>
+    <div *ngFor="let viaje of viajes">
+      <ion-list>
+        <ion-item>
+          Dirección: {{ viaje.direccion }}
+        </ion-item>
+        <ion-item>
+          Hora: {{ viaje.hora }}
+        </ion-item>
+        <ion-item>
+          Valor: $1000
+        </ion-item>
+        <ion-item>
+          Cupos disponibles: 2
+        </ion-item>
+      </ion-list>
+      <br>
+    </div>
+
     
     <div id="mapId" style="width: 320px;height: 250px;border: solid 2px black;">
     </div>
