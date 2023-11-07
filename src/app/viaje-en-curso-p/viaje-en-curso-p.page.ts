@@ -25,7 +25,7 @@ export class ViajeEnCursoPPage implements OnInit {
   loadLeafletMap() {
     console.log('OK');
     this.leafletMap = new L.Map('mapId');
-    this.leafletMap.setView([51.505, -0.09], 13);
+    this.leafletMap.setView([-33.61169, -70.57577], 13);
 
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
@@ -35,7 +35,7 @@ export class ViajeEnCursoPPage implements OnInit {
       iconUrl : './../../assets/img/marcador.png',
       iconSize: [35, 30],
     });
-    L.marker([51.5, -0.09], {icon: redicon}).addTo(this.leafletMap);
+    L.marker([-33.61169, -70.57577], {icon: redicon}).addTo(this.leafletMap);
   }
 
 }
