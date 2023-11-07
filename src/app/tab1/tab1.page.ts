@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ServicioFirebaseService } from '../services/servicio-firebase.service';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-tab1',
@@ -11,9 +13,41 @@ export class Tab1Page {
   arr = new Array();
   email:string='';
 
-  constructor(private router:Router) {}
+  constructor(private router:Router, private servFire: ServicioFirebaseService, private authSvc: AuthService) {}
 
-  ngOnInit() {
+  uid: string;
+
+  async obtenerUID() {
+    try {
+      const uid = await this.authSvc.getLoggedUserId();
+      if (uid) {
+        this.uid = uid; // Asigna el UID a la variable uid de la página
+        console.log('UID del usuario logueado:', this.uid);
+      } else {
+        console.log('Ningún usuario logueado.');
+      }
+    } catch (error) {
+      console.error('Error al obtener el UID del usuario logueado', error);
+    }
+  }
+  
+  viajes: any[];
+
+  getViaje(){
+    this.servFire.buscarViajesPorIdUserYEstado(this.uid, true).subscribe(viajes => {
+      if (viajes.length > 0) {
+        this.viajes = viajes;
+        console.log('Datos de los viajes:', viajes);
+        // Haz lo que necesites con los datos
+      } else {
+        console.log('No se encontraron viajes con los criterios especificados');
+      }
+    });
+  }
+  
+
+  async ngOnInit() {
+    await this.obtenerUID();
     var data = localStorage.getItem('email');
     console.log(data);
     if(data!=null){
@@ -28,8 +62,19 @@ export class Tab1Page {
 
     }
   }
+  
   nuevoviaje(){
-    this.router.navigate(['/nuevo-viaje']);
+    this.servFire.buscarViajesPorIdUserYEstado(this.uid, true).subscribe(viajes => {
+      if (viajes.length > 0) {
+        this.viajes = viajes;
+        const viaje = this.viajes[0];
+        this.router.navigate(['/viaje-en-curso']);
+        // Ahora puedes trabajar con 'this.viajes' y 'primerViaje' de manera segura
+      } else {
+        this.router.navigate(['/nuevo-viaje']);
+        console.log('No se encontraron viajes con los criterios especificados');
+      }
+    });
   }
   ganancias(){
     this.router.navigate(['/ganancias']);

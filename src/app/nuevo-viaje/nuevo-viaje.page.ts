@@ -36,11 +36,33 @@ export class NuevoViajePage implements OnInit {
     }
   }
   
+  viajes: any[];
+
+  getViaje(){
+    this.servFire.buscarViajesPorIdUserYEstado(this.uid, true).subscribe(viajes => {
+      if (viajes.length > 0) {
+        this.viajes = viajes;
+        console.log('Datos de los viajes:', viajes);
+        // Haz lo que necesites con los datos
+      } else {
+        console.log('No se encontraron viajes con los criterios especificados');
+      }
+    });
+  }
   
 
   async ngOnInit() {
     await this.obtenerUID();
-    this.getViaje();
+    this.servFire.buscarViajesPorIdUserYEstado(this.uid, true).subscribe(viajes => {
+      if (viajes.length > 0) {
+        this.viajes = viajes;
+        const viaje = this.viajes[0];
+        this.router.navigate(['/viaje-en-curso']);
+        // Ahora puedes trabajar con 'this.viajes' y 'primerViaje' de manera segura
+      } else {
+        console.log('No se encontraron viajes con los criterios especificados');
+      }
+    });
   }
 
   viajeencurso(){
@@ -49,9 +71,10 @@ export class NuevoViajePage implements OnInit {
 
 
   // METODOS VIAJE
+  /*
   getViaje(){
     this.servFire.getViaje('JjScZBrkWDl60aQvGGLA');
-  }
+  }*/
 
 
   recuperar() {
