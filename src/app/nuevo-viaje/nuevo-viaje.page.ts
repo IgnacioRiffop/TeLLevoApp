@@ -11,12 +11,14 @@ import { Viaje } from '../interface/viaje';
 })
 export class NuevoViajePage implements OnInit {
   direccion: string = '';
-  hora: number = 0;
+  hora: string = '';
   valor: number = 0;
+  cupo: number = 0;
 
   constructor(private router: Router, private toastCtrl: ToastController, private servFire: ServicioFirebaseService) { }
 
   ngOnInit() {
+    this.getViaje();
   }
 
   viajeencurso(){
@@ -29,6 +31,7 @@ export class NuevoViajePage implements OnInit {
     this.servFire.getViaje('JjScZBrkWDl60aQvGGLA');
   }
 
+
   recuperar() {
     this.servFire.getViajes();
   }
@@ -38,13 +41,13 @@ export class NuevoViajePage implements OnInit {
     let mi_Viaje: Viaje = {
       direccion: this.direccion,
       hora: this.hora,
-      valor: this.valor
+      valor: this.valor,
+      cupo: this.cupo
     };
 
     // Llamar al servicio Firebase para grabar el viaje
     this.servFire.grabarViaje(mi_Viaje).then(() => {
       console.log("Viaje grabado con éxito");
-      // Puedes redirigir al usuario a otra página o mostrar un mensaje de éxito aquí
     }).catch((e) => {
       console.error("Error al grabar el viaje:", e);
     });

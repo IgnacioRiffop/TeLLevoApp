@@ -1,6 +1,7 @@
 export interface Viaje {
     id?:string;
     direccion:string;
-    hora:number;
+    hora:string;
     valor:number;
+    cupo:number;
 }
