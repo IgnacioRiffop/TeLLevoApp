@@ -72,7 +72,15 @@ const routes: Routes = [
   {
     path: 'escoger-viaje',
     loadChildren: () => import('./escoger-viaje/escoger-viaje.module').then( m => m.EscogerViajePageModule), canActivate: [IsAuthGuard]
+  },  {
+    path: 'confi-vehiculo',
+    loadChildren: () => import('./confi-vehiculo/confi-vehiculo.module').then( m => m.ConfiVehiculoPageModule)
+  },
+  {
+    path: 'confi-perfil',
+    loadChildren: () => import('./confi-perfil/confi-perfil.module').then( m => m.ConfiPerfilPageModule)
   }
+
 
 
 

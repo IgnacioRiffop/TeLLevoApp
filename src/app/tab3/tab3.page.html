@@ -39,13 +39,13 @@
             Mantén la información de tu vehículo actualizada.
           </ion-card-content>
           
-          <ion-button fill="clear" style="margin-bottom: 5%;">Configuración</ion-button>
+          <ion-button fill="clear" style="margin-bottom: 5%;" (click)="confivehiculo()">Configuración</ion-button>
         </div>
       </div>
     </div>
   </ion-card>
   
-  <ion-button color="secondary" expand="block" style="margin-inline: 15%; margin-bottom: 5%;">Datos personales</ion-button>
+  <ion-button color="secondary" expand="block" style="margin-inline: 15%; margin-bottom: 5%;" (click)="confiperfil()">Datos personales</ion-button>
   <ion-button color="danger" expand="block" style="margin-inline: 15%;" (click)="onLogout()">Cerrar Sesión</ion-button>
 
 <!--

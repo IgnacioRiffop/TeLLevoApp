@@ -43,4 +43,12 @@ export class Tab3Page {
   login() {
     this.router.navigate(['/login']);
   }
+
+  confivehiculo(){
+    this.router.navigate(['/confi-vehiculo']);
+  }
+
+  confiperfil(){
+    this.router.navigate(['/confi-perfil']);
+  }
 }

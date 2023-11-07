@@ -1,0 +1,57 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title></ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="row"></div>
+
+  <div class="row1">
+    <div class="col">
+      Datos del vehículo
+    </div>
+  </div>
+  
+  <ion-card class="card-flex">
+    <div class="card-content">
+      <div class="contenido">
+        <!-- Imagen en la parte superior con margen derecho -->
+        <img alt="Iniciar Viaje" src="./../../assets/img/1988880_car_front_vehicle_icon.png" class="img-con-margen"/>
+      
+        <!-- Contenido a la derecha -->
+        <form>
+          <ion-list>
+            <ion-item>
+              <ion-label position="floating">Patente</ion-label>
+              <ion-input name="patente" type="text" required></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label position="floating">Modelo</ion-label>
+              <ion-input name="modelo" type="text" required></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label position="floating">Marca</ion-label>
+              <ion-input name="marca" type="text" required></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label position="floating">Año</ion-label>
+              <ion-input name="anio" type="number" required></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label position="floating">Capacidad</ion-label>
+              <ion-input name="capacidad" type="number" required></ion-input>
+            </ion-item>
+          </ion-list>
+          <br>
+          <ion-button type="submit" color="success" expand="block">Guardar</ion-button>
+        </form>
+      </div>
+    </div>
+  </ion-card>
+</ion-content>
+
+
