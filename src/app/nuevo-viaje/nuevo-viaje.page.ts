@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { ToastController } from '@ionic/angular';
 import { ServicioFirebaseService } from '../services/servicio-firebase.service';
 import { Viaje } from '../interface/viaje';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-nuevo-viaje',
@@ -14,10 +15,31 @@ export class NuevoViajePage implements OnInit {
   hora: string = '';
   valor: number = 0;
   cupo: number = 0;
+  estado: boolean=true;
+  
 
-  constructor(private router: Router, private toastCtrl: ToastController, private servFire: ServicioFirebaseService) { }
+  constructor(private router: Router, private toastCtrl: ToastController, private servFire: ServicioFirebaseService, private authSvc: AuthService) { }
 
-  ngOnInit() {
+  uid: string;
+
+  async obtenerUID() {
+    try {
+      const uid = await this.authSvc.getLoggedUserId();
+      if (uid) {
+        this.uid = uid; // Asigna el UID a la variable uid de la página
+        console.log('UID del usuario logueado:', this.uid);
+      } else {
+        console.log('Ningún usuario logueado.');
+      }
+    } catch (error) {
+      console.error('Error al obtener el UID del usuario logueado', error);
+    }
+  }
+  
+  
+
+  async ngOnInit() {
+    await this.obtenerUID();
     this.getViaje();
   }
 
@@ -42,7 +64,9 @@ export class NuevoViajePage implements OnInit {
       direccion: this.direccion,
       hora: this.hora,
       valor: this.valor,
-      cupo: this.cupo
+      cupo: this.cupo,
+      estado: this.estado,
+      iduser: this.uid,
     };
 
     // Llamar al servicio Firebase para grabar el viaje

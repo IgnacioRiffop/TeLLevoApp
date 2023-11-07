@@ -4,4 +4,6 @@ export interface Viaje {
     hora:string;
     valor:number;
     cupo:number;
+    estado: boolean;
+    iduser: string;
 }
