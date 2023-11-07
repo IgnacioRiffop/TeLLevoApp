@@ -49,9 +49,10 @@ export class RegistroPage implements OnInit {
     const nombre = this.user.nombre;
     const apellido = this.user.apellido;
     const celular = this.user.celular;
+    const conductor = false;
 
     // Agrega el nombre y apellido a la base de datos utilizando el UID
-    this.servFire.grabarUsuario(uid,nombre,apellido,celular);
+    this.servFire.grabarUsuario(uid,nombre,apellido,celular,conductor);
 
     if (user) {
       let men = this.toastCtrl.create({

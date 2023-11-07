@@ -27,7 +27,12 @@ export class LoginPage implements OnInit {
     const user = await this.authSvc.onLogin(this.user);
     if (user) {
       console.log('exitosamente logeado!')
-      this.router.navigate(['/tabs/tab1']);
+      if(user.user.email=="fa@duocuc.cl"){
+        this.router.navigate(['/home2']);
+      } else{
+        this.router.navigate(['/tabs/tab1']);
+      }
+      
     }
   }
 
