@@ -7,6 +7,7 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { AngularFirestoreCollection } from '@angular/fire/compat/firestore';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -45,6 +46,25 @@ export class ServicioFirebaseService {
     return viajesCollection.valueChanges();
   }
 
+  buscarViajesPorIdUserYEstadoUid(iduser: string, estado: boolean): Observable<any[]> {
+    const viajesCollection = this.afs.collection('Viaje', ref => {
+      return ref
+        .where('iduser', '==', iduser)
+        .where('estado', '==', estado);
+    });
+  
+    return viajesCollection.snapshotChanges().pipe(
+      map(actions => {
+        return actions.map(action => {
+          const data = action.payload.doc.data() as any;
+          const uid = action.payload.doc.id;
+          return { uid, ...data };
+        });
+      })
+    );
+  }
+  
+
   // AUTENTICACION 
   /*
   login(user: Usuario){
@@ -55,6 +75,33 @@ export class ServicioFirebaseService {
     return this.auth.createUserWithEmailAndPassword(user.email, user.pass)
   }*/
   // FIN AUTENTICACION
+
+  // METODOS USUARIO
+
+  getDatosUsuario(uid : string){
+    return this.usuarioColeccion.doc(uid).valueChanges()
+  }
+
+/*
+  buscarDatosUsuario(uid: string): Observable<any[]> {
+    console.log(uid);
+    const usuarioColeccion = this.afs.collection('Usuario', ref => {
+      return ref
+        .where('uid', '==', uid);
+    });
+  
+    return usuarioColeccion.valueChanges();
+  }
+*/
+  /*
+  getUsuario(id : string){
+    return this.usuarioColeccion.doc(id).valueChanges().subscribe(
+      (res)=>{
+        console.log("get");
+        console.log(res);
+      }
+    )
+  }*/
 
   // METODOS VEHICULO
   getVehiculos(){
@@ -75,12 +122,7 @@ export class ServicioFirebaseService {
   }
 
   getVehiculo(id : string){
-    return this.vehiculoColeccion.doc(id).valueChanges().subscribe(
-      (res)=>{
-        console.log("get");
-        console.log(res);
-      }
-    )
+    return this.vehiculoColeccion.doc(id).valueChanges()
   }
 
 
@@ -98,7 +140,7 @@ export class ServicioFirebaseService {
   }
 
   eliminarViaje(id : string){
-    return this.viajeColeccion.doc(id).delete();
+    return this.viajeColeccion.doc(id).update({ 'estado': false });
   }
 
   getViaje(id : string){

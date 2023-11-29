@@ -23,17 +23,24 @@ export class LoginPage implements OnInit {
   ngOnInit() {
   }
 
+  usuario: any;
+
   async onLogin() {
     const user = await this.authSvc.onLogin(this.user);
-    if (user) {
-      console.log('exitosamente logeado!')
-      if(user.user.email=="fa@duocuc.cl"){
-        this.router.navigate(['/home2']);
-      } else{
-        this.router.navigate(['/tabs/tab1']);
+    this.servFire.getDatosUsuario(user.user.uid).subscribe(
+      (res) => {
+        console.log('Datos del usuario obtenidos:', res);
+        this.usuario = res;
+        if(this.usuario.conductor==true){
+          this.router.navigate(['/tabs/tab1']);
+        } else{
+          this.router.navigate(['/home2']);
+        }
+      },
+      (error) => {
+        console.error('Error al obtener datos del usuario:', error);
       }
-      
-    }
+    );
   }
 
 

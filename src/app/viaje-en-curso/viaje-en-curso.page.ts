@@ -49,6 +49,8 @@ export class ViajeEnCursoPage implements OnInit {
     });
   }
 
+  idviaje: string;
+
   async ngOnInit() {
     await this.obtenerUID();
     this.loadLeafletMap();
@@ -56,6 +58,8 @@ export class ViajeEnCursoPage implements OnInit {
       if (viajes.length > 0) {
         this.viajes = viajes;
         const viaje = this.viajes[0];
+        console.log(viaje);
+        this.idviaje = viaje.uid;
         // Ahora puedes trabajar con 'this.viajes' y 'primerViaje' de manera segura
       } else {
         console.log('No se encontraron viajes con los criterios especificados');
@@ -86,5 +90,29 @@ export class ViajeEnCursoPage implements OnInit {
       iconSize: [35, 30],
     });
     L.marker([-33.61169, -70.57577], {icon: redicon}).addTo(this.leafletMap);
+  }
+
+  eliminarViaje(){
+    this.servFire.buscarViajesPorIdUserYEstadoUid(this.uid, true).subscribe(viajes => {
+      if (viajes.length > 0) {
+        this.viajes = viajes;
+        const viaje = this.viajes[0];
+        console.log('HOLAAAAA')
+        console.log('viaje uid:' , viaje.uid);
+        console.log(viaje)
+
+        this.servFire.eliminarViaje(viaje.uid).then(()=>{
+          
+          console.log("eliminoViaje");
+          this.router.navigate(['/tabs/tab1']);
+        }).catch((e)=>{
+          console.log(e);
+        })
+        // Ahora puedes trabajar con 'this.viajes' y 'primerViaje' de manera segura
+      } else {
+        console.log('No se encontraron viajes con los criterios especificados');
+      }
+    });
+
   }
 }
