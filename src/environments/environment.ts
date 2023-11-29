@@ -11,7 +11,8 @@ export const environment = {
     storageBucket: "tellevoapp-c3288.appspot.com",
     messagingSenderId: "349763396550",
     appId: "1:349763396550:web:8b536ee5d43155f50088c7"
-  }
+  },
+  apiMB:"pk.eyJ1IjoiZnJlZGNhbXBvczEyMzAiLCJhIjoiY2xudTl2d2VrMDlpbzJrcWpnYnJkc3JqbCJ9.hjid1kkpkU37wvVJrj2pQg"
 };
 
 /*
