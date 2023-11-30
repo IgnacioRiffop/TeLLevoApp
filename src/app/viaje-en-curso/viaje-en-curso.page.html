@@ -46,8 +46,17 @@ crossorigin=""/>
     </div>
 
     
-    <div id="mapId" style="width: 320px;height: 250px;border: solid 2px black;">
+    <!--<div id="mapId" style="width: 320px;height: 250px;border: solid 2px black;">-->
+      <div id="controles">
+        <ion-input [(ngModel)]="direccion" style="color: black; background-color: rgb(228, 228, 228);"></ion-input>
+        <ion-button (click)="buscar()">Buscar</ion-button>
+        <ion-button (click)="ir()">IR</ion-button>
     </div>
+    <div id="container_map">
+      <div id="map"></div>
+    </div>
+
+  
 
     <div style="margin-top: 5%;">
       <ion-button color="success">Comenzar viaje</ion-button>
