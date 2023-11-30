@@ -30,9 +30,6 @@ crossorigin=""/>
     <div *ngFor="let viaje of viajes">
       <ion-list>
         <ion-item>
-          Dirección: {{ viaje.direccion }}
-        </ion-item>
-        <ion-item>
           Hora: {{ viaje.hora }}
         </ion-item>
         <ion-item>
@@ -47,7 +44,7 @@ crossorigin=""/>
 
     
     <!--<div id="mapId" style="width: 320px;height: 250px;border: solid 2px black;">-->
-      <div id="controles">
+    <div id="controles">
         <ion-input [(ngModel)]="direccion" style="color: black; background-color: rgb(228, 228, 228);"></ion-input>
         <ion-button (click)="buscar()">Buscar</ion-button>
         <ion-button (click)="ir()">IR</ion-button>
@@ -59,24 +56,9 @@ crossorigin=""/>
   
 
     <div style="margin-top: 5%;">
-      <ion-button color="success">Comenzar viaje</ion-button>
-      <ion-button color="danger" (click)="eliminarViaje()">Cancelar viaje</ion-button>
+      <ion-button color="danger" (click)="eliminarViaje()">Finalizar viaje</ion-button>
     </div>
 
-  </div>
-
-  <div class="row1" style="margin-top: 5%;">
-    <div class="col">
-      Pasajeros
-    </div>
-    <ion-list>
-      <ion-item>
-        Ignacio Riffo
-      </ion-item>
-      <ion-item>
-        Darliett Candia
-      </ion-item>
-    </ion-list>
   </div>
 
 

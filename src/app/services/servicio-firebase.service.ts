@@ -143,6 +143,10 @@ export class ServicioFirebaseService {
     return this.viajeColeccion.doc(id).update({ 'estado': false });
   }
 
+  direccionViaje(id : string, direccion : string){
+    return this.viajeColeccion.doc(id).update({ 'direccion': direccion });
+  }
+
   getViaje(id : string){
     return this.viajeColeccion.doc(id).valueChanges().subscribe(
       (res)=>{

@@ -84,7 +84,7 @@ export class NuevoViajePage implements OnInit {
   grabarViaje() {
     // Crear un objeto Viaje con los datos del formulario
     let mi_Viaje: Viaje = {
-      direccion: this.direccion,
+      direccion: '',
       hora: this.hora,
       valor: this.valor,
       cupo: this.cupo,

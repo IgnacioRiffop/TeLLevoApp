@@ -56,7 +56,6 @@ export class ViajeEnCursoPage implements OnInit {
 
   async ngOnInit() {
     await this.obtenerUID();
-    this.loadLeafletMap();
     this.servFire.buscarViajesPorIdUserYEstado(this.uid, true).subscribe(viajes => {
       if (viajes.length > 0) {
         this.viajes = viajes;
@@ -68,6 +67,7 @@ export class ViajeEnCursoPage implements OnInit {
         console.log('No se encontraron viajes con los criterios especificados');
       }
     });
+    this.loadLeafletMap();
     /*
     const primerViaje = this.viajes[0];
     const direccion = primerViaje.direccion;
@@ -100,7 +100,6 @@ export class ViajeEnCursoPage implements OnInit {
       if (viajes.length > 0) {
         this.viajes = viajes;
         const viaje = this.viajes[0];
-        console.log('HOLAAAAA')
         console.log('viaje uid:' , viaje.uid);
         console.log(viaje)
 
@@ -117,6 +116,30 @@ export class ViajeEnCursoPage implements OnInit {
       }
     });
 
+  }
+
+  direccionViaje(direccion : string){
+    let ejecutado = false;
+
+    this.servFire.buscarViajesPorIdUserYEstadoUid(this.uid, true).subscribe(viajes => {
+      if (!ejecutado && viajes.length > 0) {
+        this.viajes = viajes;
+        const viaje = this.viajes[0];
+        console.log('viaje uid:' , viaje.uid);
+        console.log(viaje)
+
+        this.servFire.direccionViaje(viaje.uid, direccion).then(()=>{
+          console.log("direccionViaje");
+          ejecutado = true;
+        }).catch((e)=>{
+          console.log(e);
+          ejecutado = true;
+        })
+        // Ahora puedes trabajar con 'this.viajes' y 'primerViaje' de manera segura
+      } else {
+        console.log('No se encontraron viajes con los criterios especificados');
+      }
+    });
   }
 
   lngFin:number=0;
@@ -192,6 +215,8 @@ export class ViajeEnCursoPage implements OnInit {
 
           // Guardar la dirección en el localStorage
           const direccionCompleta = route['features'][0]['place_name'];
+          this.direccionViaje(direccionCompleta);
+
           //localStorage.setItem('direccionGuardada', direccionCompleta);
         
         }
