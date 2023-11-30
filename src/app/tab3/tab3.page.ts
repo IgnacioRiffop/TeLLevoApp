@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AuthService } from '../services/auth.service';
 import { AngularFirestore } from '@angular/fire/compat/firestore'; // Importa AngularFirestore para Firestore
+import { ServicioFirebaseService } from '../services/servicio-firebase.service';
 
 @Component({
   selector: 'app-tab3',
@@ -16,7 +17,8 @@ export class Tab3Page {
     private router: Router,
     private authSvc: AuthService,
     private afAuth: AngularFireAuth,
-    private firestore: AngularFirestore // Inyecta AngularFirestore
+    private firestore: AngularFirestore,
+    private servFire: ServicioFirebaseService // Inyecta AngularFirestore
   ) {
     // Suscríbete a cambios en la autenticación
     this.afAuth.authState.subscribe(user => {
@@ -51,4 +53,35 @@ export class Tab3Page {
   confiperfil(){
     this.router.navigate(['/confi-perfil']);
   }
+
+  uid: string;
+
+  async obtenerUID() {
+    try {
+      const uid = await this.authSvc.getLoggedUserId();
+      if (uid) {
+        this.uid = uid; // Asigna el UID a la variable uid de la página
+        console.log('UID del usuario logueado:', this.uid);
+      } else {
+        console.log('Ningún usuario logueado.');
+      }
+    } catch (error) {
+      console.error('Error al obtener el UID del usuario logueado', error);
+    }
+  }
+
+  datosUsuario: any;
+
+  async ngOnInit() {
+    await this.obtenerUID();
+
+    this.servFire.getDatosUsuario(this.uid).subscribe((datos) => {
+      this.datosUsuario = datos;
+      console.log('Datos del usuario:', this.datosUsuario);
+
+      // Puedes realizar otras operaciones con los datos del usuario aquí
+    });
+  }
+
+  
 }

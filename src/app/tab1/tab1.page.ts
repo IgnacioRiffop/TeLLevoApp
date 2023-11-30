@@ -46,8 +46,17 @@ export class Tab1Page {
   }
   
 
+  datosUsuario1: any;
+
   async ngOnInit() {
     await this.obtenerUID();
+    this.servFire.getDatosUsuario(this.uid).subscribe((datos) => {
+      this.datosUsuario1 = datos;
+      console.log('Datos del usuario:', this.datosUsuario1);
+
+      // Puedes realizar otras operaciones con los datos del usuario aquí
+    });
+    
     var data = localStorage.getItem('email');
     console.log(data);
     if(data!=null){
