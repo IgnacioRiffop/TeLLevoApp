@@ -12,7 +12,7 @@ export class Home2Page implements OnInit {
   ngOnInit() {
   }
 
-  buscarviaje(){
-    this.router.navigate(['/buscar-viaje']);
+  escogerviaje(){
+    this.router.navigate(['/escoger-viaje']);
   }
 }

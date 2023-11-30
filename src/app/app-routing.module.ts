@@ -79,6 +79,10 @@ const routes: Routes = [
   {
     path: 'confi-perfil',
     loadChildren: () => import('./confi-perfil/confi-perfil.module').then( m => m.ConfiPerfilPageModule)
+  },
+  {
+    path: 'aceptar-viaje',
+    loadChildren: () => import('./aceptar-viaje/aceptar-viaje.module').then( m => m.AceptarViajePageModule)
   }
 
 

@@ -17,9 +17,9 @@ crossorigin=""/>
 
   <div class="row1">
     <div class="col">
-      Detalle viaje
+      Viaje en curso
       <div class="col-sm">
-        Estos son los datos de tu trayecto
+        datos del trayecto
       </div>
     </div>
   </div>
@@ -51,28 +51,14 @@ crossorigin=""/>
       </ion-item>
     </ion-list>
     <br>
-    <div id="mapId" style="width: 320px;height: 250px;border: solid 2px black;">
-    </div>
 
     <div style="margin-top: 5%;">
-      <ion-button color="success" (click)="aceptarviaje()">Aceptar viaje</ion-button>
+      <ion-button color="danger" (click)="finalizarviaje()">Finalizar viaje</ion-button>
     </div>
 
   </div>
 
-  <div class="row1" style="margin-top: 5%;">
-    <div class="col">
-      Pasajeros
-    </div>
-    <ion-list>
-      <ion-item>
-        Ignacio Riffo
-      </ion-item>
-      <ion-item>
-        Darliett Candia
-      </ion-item>
-    </ion-list>
-  </div>
+  
 
 </ion-content>
 

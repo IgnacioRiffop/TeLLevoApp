@@ -16,10 +16,14 @@ export class ViajeEnCursoPPage implements OnInit {
   
   zoom: number = 8;
 
-  constructor() { }
+  constructor(private router:Router) {}
 
   ngOnInit() {
     this.loadLeafletMap();
+  }
+
+  aceptarviaje(){
+    this.router.navigate(['/aceptar-viaje']);
   }
 
   loadLeafletMap() {
