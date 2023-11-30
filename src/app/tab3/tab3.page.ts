@@ -11,6 +11,9 @@ import { ServicioFirebaseService } from '../services/servicio-firebase.service';
   styleUrls: ['tab3.page.scss']
 })
 export class Tab3Page {
+  arreglo = [];
+  arr = new Array();
+  email:string='';
   user: any; // Variable para almacenar los datos del usuario
 
   constructor(
@@ -71,6 +74,7 @@ export class Tab3Page {
   }
 
   datosUsuario: any;
+  isConductor: boolean = true;
 
   async ngOnInit() {
     await this.obtenerUID();
@@ -78,9 +82,30 @@ export class Tab3Page {
     this.servFire.getDatosUsuario(this.uid).subscribe((datos) => {
       this.datosUsuario = datos;
       console.log('Datos del usuario:', this.datosUsuario);
-
+      if(this.isConductor==this.datosUsuario.conductor){
+        console.log('ES CONDUCTOR');
+      }else{
+        console.log('NO ES CONDUCTOR');
+        this.isConductor=false;
+      }
       // Puedes realizar otras operaciones con los datos del usuario aquí
     });
+
+
+    var data = localStorage.getItem('email');
+    console.log(data);
+    if(data!=null){
+      console.log("no es nulo");
+      this.arreglo=JSON.parse(data);
+      console.log(this.arreglo);
+      this.arr.push(this.arreglo);
+      this.arr.forEach(element => {
+        console.log(element.email);
+        this.email=element.email;
+      })
+    }
+
+
   }
 
   

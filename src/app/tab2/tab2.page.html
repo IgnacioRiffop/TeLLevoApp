@@ -19,7 +19,66 @@
     </div>
   </div>
 
-  <app-viaje fecha="{{viaje.fecha}}" direccion="{{viaje.direccion}}" salida="{{viaje.salida}}" precio="{{viaje.precio}}" *ngFor="let viaje of viajes"></app-viaje>
+  
+  <div *ngIf="isConductor; else elseBlock">
+    <app-viaje fecha="{{viaje.fecha}}" direccion="{{viaje.direccion}}" salida="{{viaje.salida}}" precio="{{viaje.precio}}" *ngFor="let viaje of viajes"></app-viaje>
+  </div>
+  <ng-template #elseBlock>
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>02/09/2023</ion-card-title>
+        <ion-card-subtitle></ion-card-subtitle>
+      </ion-card-header>
+    
+      <ion-card-content>
+        <div class="row-card">
+          <img src="./../../assets/img/1988880_car_front_vehicle_icon.png" alt="" class="img-size">
+          <div>
+            <p>Dirección: La trilla 5623</p>
+            <p>Salida: 14:50</p>
+            <p>Precio: $2.100 CLP</p>
+          </div>
+        </div>
+      </ion-card-content>
+    </ion-card>
+  
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>03/09/2023</ion-card-title>
+        <ion-card-subtitle></ion-card-subtitle>
+      </ion-card-header>
+    
+      <ion-card-content>
+        <div class="row-card">
+          <img src="./../../assets/img/1988880_car_front_vehicle_icon.png" alt="" class="img-size">
+          <div>
+            <p>Dirección: Av San Carlos 4342</p>
+            <p>Salida: 12:50</p>
+            <p>Precio: $1.750 CLP</p>
+          </div>
+        </div>
+      </ion-card-content>
+    </ion-card>
+  
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>04/09/2023</ion-card-title>
+        <ion-card-subtitle></ion-card-subtitle>
+      </ion-card-header>
+    
+      <ion-card-content>
+        <div class="row-card">
+          <img src="./../../assets/img/1988880_car_front_vehicle_icon.png" alt="" class="img-size">
+          <div>
+            <p>Dirección: Av San Carlos 4342</p>
+            <p>Salida: 15:50</p>
+            <p>Precio: $1.950 CLP</p>
+          </div>
+        </div>
+      </ion-card-content>
+    </ion-card>
+  </ng-template>
+
 
 
 </ion-content>

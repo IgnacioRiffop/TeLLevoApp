@@ -18,42 +18,36 @@
       </div>
     </div>
   </div>
-  <ion-card>
-    <ion-card-header>
-      <ion-card-title>David Espinosa</ion-card-title>
-      <ion-card-subtitle></ion-card-subtitle>
-    </ion-card-header>
   
-    <ion-card-content>
-      <div class="row-card">
-        <img src="./../../assets/img/1988880_car_front_vehicle_icon.png" alt="" class="img-size">
-        <div>
-          <p>Dirección: Eyzaguirre 2131</p>
-          <p>Salida: 12:40</p>
-          <p>Precio: $2.750 CLP</p>
-          <p>Cupos: 3</p>
+  <div *ngIf="mostrarElemento; else elseBlock">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>David Espinosa</ion-card-title>
+        <ion-card-subtitle></ion-card-subtitle>
+      </ion-card-header>
+    
+      <ion-card-content>
+        <div class="row-card">
+          <img src="./../../assets/img/1988880_car_front_vehicle_icon.png" alt="" class="img-size">
+          <div>
+            <p>Dirección: {{ viaje.direccion }}</p>
+            <p>Salida: {{ viaje.hora }}</p>
+            <p>Precio: ${{ viaje.valor }} CLP</p>
+            <p>Cupos: {{ viaje.cupo }}</p>
+          </div>
+          <ion-button color="success" expand="block" (click)="viajeencursop()">Seleccionar</ion-button>
         </div>
-        <ion-button color="success" expand="block" (click)="viajeencursop()">Seleccionar</ion-button>
-      </div>
-    </ion-card-content>
-  </ion-card>
-  <ion-card>
-    <ion-card-header>
-      <ion-card-title>Cristian Vera</ion-card-title>
-      <ion-card-subtitle></ion-card-subtitle>
-    </ion-card-header>
-  
-    <ion-card-content>
-      <div class="row-card">
-        <img src="./../../assets/img/1988880_car_front_vehicle_icon.png" alt="" class="img-size">
-        <div>
-          <p>Dirección: San Carlos 3625</p>
-          <p>Salida: 15:15</p>
-          <p>Precio: $1.500 CLP</p>
-          <p>Cupos: 2</p>
-        </div>
-        <ion-button color="success" expand="block" (click)="viajeencursop()">Seleccionar</ion-button>
-      </div>
-    </ion-card-content>
-  </ion-card>
+      </ion-card-content>
+    </ion-card>
+  </div>
+  <ng-template #elseBlock>
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>No hay viajes disponibles</ion-card-title>
+        <ion-card-subtitle></ion-card-subtitle>
+      </ion-card-header>
+    </ion-card>
+  </ng-template>
+
+
 </ion-content>

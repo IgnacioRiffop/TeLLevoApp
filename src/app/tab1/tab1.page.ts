@@ -47,12 +47,19 @@ export class Tab1Page {
   
 
   datosUsuario1: any;
+  isConductor: boolean = true;
 
   async ngOnInit() {
     await this.obtenerUID();
     this.servFire.getDatosUsuario(this.uid).subscribe((datos) => {
       this.datosUsuario1 = datos;
       console.log('Datos del usuario:', this.datosUsuario1);
+      if(this.isConductor==this.datosUsuario1.conductor){
+        console.log('ES CONDUCTOR');
+      }else{
+        console.log('NO ES CONDUCTOR');
+        this.isConductor=false;
+      }
 
       // Puedes realizar otras operaciones con los datos del usuario aquí
     });
@@ -89,6 +96,10 @@ export class Tab1Page {
     this.router.navigate(['/ganancias']);
   }
   buscarviaje(){
+    this.router.navigate(['/escoger-viaje']);
+  }
+
+  escogerviaje(){
     this.router.navigate(['/escoger-viaje']);
   }
 }

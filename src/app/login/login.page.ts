@@ -31,11 +31,13 @@ export class LoginPage implements OnInit {
       (res) => {
         console.log('Datos del usuario obtenidos:', res);
         this.usuario = res;
+        this.router.navigate(['/tabs/tab1']);
+        /*
         if(this.usuario.conductor==true){
           this.router.navigate(['/tabs/tab1']);
         } else{
           this.router.navigate(['/home2']);
-        }
+        }*/
       },
       (error) => {
         console.error('Error al obtener datos del usuario:', error);

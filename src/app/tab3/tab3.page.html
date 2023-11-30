@@ -7,66 +7,91 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <div class="row"></div>
 
-  <div class="row1">
-    <div class="col1">
-      <div style="display: flex; align-items: center;">
-        <p>{{datosUsuario.nombre}} {{datosUsuario.apellido}}</p>
-        <img alt="" name="person-circle" style="margin-right: 7%;" src="./../../assets/img/403017_avatar_default_head_person_unknown_icon.png" class="img img-con-margen"/>
-      </div>
-    </div>
-  </div>
-  
-  <ion-card class="card-flex">
-    <div class="card-content">
-      <div class="contenido">
-        <!-- Imagen en la parte superior con margen derecho -->
-        <img alt="Iniciar Viaje" src="./../../assets/img/1988880_car_front_vehicle_icon.png" class="img-con-margen"/>
-      
-        <!-- Contenido a la derecha -->
-        <div class="info">
-          <!-- Texto arriba del contenido -->
-          <ion-card-title style="margin-top: 5%;">WD-JK-46</ion-card-title>
-    
-          <ion-card-header>
-            <ion-card-subtitle>• Capacidad 4 pasajeros</ion-card-subtitle>
-            <ion-card-subtitle>• Hyundai Elantra 2019</ion-card-subtitle>
-          </ion-card-header>
-    
-          <ion-card-content>
-            Mantén la información de tu vehículo actualizada.
-          </ion-card-content>
-          
-          <ion-button fill="clear" style="margin-bottom: 5%;" (click)="confivehiculo()">Configuración</ion-button>
+
+
+  <div *ngIf="isConductor; else elseBlock">
+    <ion-content [fullscreen]="true">
+    <div class="row"></div>
+
+    <div class="row1">
+      <div class="col1">
+        <div style="display: flex; align-items: center;">
+          <p>{{datosUsuario.nombre}} {{datosUsuario.apellido}}</p>
+          <img alt="" name="person-circle" style="margin-right: 7%;" src="./../../assets/img/403017_avatar_default_head_person_unknown_icon.png" class="img img-con-margen"/>
         </div>
       </div>
     </div>
-  </ion-card>
-  
-  <ion-button color="secondary" expand="block" style="margin-inline: 15%; margin-bottom: 5%;" (click)="confiperfil()">Datos personales</ion-button>
-  <ion-button color="danger" expand="block" style="margin-inline: 15%;" (click)="onLogout()">Cerrar Sesión</ion-button>
+    
+    <ion-card class="card-flex">
+      <div class="card-content">
+        <div class="contenido">
+          <!-- Imagen en la parte superior con margen derecho -->
+          <img alt="Iniciar Viaje" src="./../../assets/img/1988880_car_front_vehicle_icon.png" class="img-con-margen"/>
+        
+          <!-- Contenido a la derecha -->
+          <div class="info">
+            <!-- Texto arriba del contenido -->
+            <ion-card-title style="margin-top: 5%;">WD-JK-46</ion-card-title>
+      
+            <ion-card-header>
+              <ion-card-subtitle>• Capacidad 4 pasajeros</ion-card-subtitle>
+              <ion-card-subtitle>• Hyundai Elantra 2019</ion-card-subtitle>
+            </ion-card-header>
+      
+            <ion-card-content>
+              Mantén la información de tu vehículo actualizada.
+            </ion-card-content>
+            
+            <ion-button fill="clear" style="margin-bottom: 5%;" (click)="confivehiculo()">Configuración</ion-button>
+          </div>
+        </div>
+      </div>
+    </ion-card>
+    
+    <ion-button color="secondary" expand="block" style="margin-inline: 15%; margin-bottom: 5%;" (click)="confiperfil()">Datos personales</ion-button>
+    <ion-button color="danger" expand="block" style="margin-inline: 15%;" (click)="onLogout()">Cerrar Sesión</ion-button>
+  </ion-content>
+  </div>
 
-<!--
-  <div class="row" style="min-height: 10px;"></div>
--->
 
+  <ng-template #elseBlock>
+    <ion-content [fullscreen]="true">    
   
-<!--
-  <ion-card>
-    <img alt="Iniciar Viaje" src="./../../assets/img/img-seguridad.png" class="img-size" />
-    <ion-card-header>
-      <ion-card-title></ion-card-title>
-      <ion-card-subtitle>Invita estudiantes a ir contigo.</ion-card-subtitle>
-    </ion-card-header>
-  
-    <ion-card-content>
-      garantizamos la protección de los datos y la seguridad de los usuarios de manera prioritaria. Se implementan medidas de seguridad sólidas para asegurar la confidencialidad de la información personal y la integridad de las transacciones, brindando a los usuarios una experiencia segura y confiable en todo momento.
-    </ion-card-content>
-  </ion-card>
--->
+      <div class="row"></div>
+    
+      <div class="row1">
+        <div class="col1">
+          <div style="display: flex; align-items: center;">
+            <p>{{datosUsuario.nombre}} {{datosUsuario.apellido}} </p>
+            <img alt="" name="person-circle" style="margin-right: 7%;" src="./../../assets/img/403017_avatar_default_head_person_unknown_icon.png" class="img img-con-margen"/>
+          </div>
+        </div>
+      </div>
+      
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title>Datos Personales</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <ion-list>
+            <ion-item>
+              <ion-label>Email: {{email}}</ion-label>
+            </ion-item>
+            <ion-item>
+              <ion-label>Celular: {{datosUsuario.celular}}</ion-label>
+            </ion-item>
+          </ion-list>
+        </ion-card-content>
+      </ion-card>
+      
+      <ion-button color="secondary" expand="block" style="margin-inline: 15%; margin-bottom: 5%;">Editar datos</ion-button>
+      <ion-button color="danger" expand="block" style="margin-inline: 15%;" (click)="login()">Cerrar Sesión</ion-button>
+      
+    </ion-content>
+  </ng-template>
 
-</ion-content>
+
+
 
 
