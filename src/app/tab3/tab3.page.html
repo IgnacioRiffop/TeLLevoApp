@@ -9,9 +9,9 @@
 
 
 
-
+<ion-content [fullscreen]="true">
   <div *ngIf="isConductor; else elseBlock">
-    <ion-content [fullscreen]="true">
+
     <div class="row"></div>
 
     <div class="row1">
@@ -51,12 +51,10 @@
     
     <ion-button color="secondary" expand="block" style="margin-inline: 15%; margin-bottom: 5%;" (click)="confiperfil()">Datos personales</ion-button>
     <ion-button color="danger" expand="block" style="margin-inline: 15%;" (click)="onLogout()">Cerrar Sesión</ion-button>
-  </ion-content>
+
   </div>
 
-
-  <ng-template #elseBlock>
-    <ion-content [fullscreen]="true">    
+  <ng-template #elseBlock>  
   
       <div class="row"></div>
     
@@ -88,10 +86,9 @@
       <ion-button color="secondary" expand="block" style="margin-inline: 15%; margin-bottom: 5%;">Editar datos</ion-button>
       <ion-button color="danger" expand="block" style="margin-inline: 15%;" (click)="onLogout()">Cerrar Sesión</ion-button>
       
-    </ion-content>
   </ng-template>
 
 
 
-
+</ion-content>
 
