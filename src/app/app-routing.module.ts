@@ -83,6 +83,14 @@ const routes: Routes = [
   {
     path: 'aceptar-viaje',
     loadChildren: () => import('./aceptar-viaje/aceptar-viaje.module').then( m => m.AceptarViajePageModule)
+  },
+  {
+    path: 'seleccionar-viaje',
+    loadChildren: () => import('./seleccionar-viaje/seleccionar-viaje.module').then( m => m.SeleccionarViajePageModule)
+  },
+  {
+    path: 'viaje-seleccionado-p',
+    loadChildren: () => import('./viaje-seleccionado-p/viaje-seleccionado-p.module').then( m => m.ViajeSeleccionadoPPageModule)
   }
 
 

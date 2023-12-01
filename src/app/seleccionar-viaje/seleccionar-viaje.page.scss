@@ -1,0 +1,66 @@
+.row{
+    //background: white;
+    min-height: 20px;
+    display: grid;
+    ///gap: 10px;
+  }
+  
+  .row1{
+    //background: purple;
+    min-height: 50px;
+    display: grid;
+    place-items: start;
+    margin-left: 22px;
+    grid-template-columns: 1fr;
+    ///gap: 10px;
+  }
+  
+  .row2{
+    //background: gray;
+    min-height: 120px;
+    display: grid;
+    //place-items: center;
+    grid-template-columns: 1fr 340px 1fr;
+    ///gap: 10px;
+  }
+  
+  .col{
+    font-size: 30px;
+  }
+  
+  .col-sm{
+    font-size: 20px;
+    color: gray;
+  }
+  
+    
+    .btn-viaje{
+      font-size:35px;
+      width: 340px;
+      height: 100px;
+    }
+    
+    .btn-icon{
+      width: 70px;
+      height: 70px;
+      justify-content: left;
+    }
+
+    .row-card{
+        //background: purple;
+        min-height: 50px;
+        display: grid;
+        place-items: center;
+        grid-template-columns: 100px 1fr;
+        ///gap: 10px;
+      }
+    
+    .img-size{
+        height: 80%;
+    }
+    
+    .custom-list {
+      border: 1px solid #ccc; // Puedes ajustar el color y el grosor del borde según tus preferencias
+      border-radius: 5px; // Puedes ajustar el radio de la esquina según tus preferencias
+      padding: 10px; // Puedes ajustar el relleno según tus preferencias
+    }

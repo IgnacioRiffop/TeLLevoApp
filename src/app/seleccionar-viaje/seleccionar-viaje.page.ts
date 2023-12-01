@@ -1,15 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { ServicioFirebaseService } from '../services/servicio-firebase.service';
 import { AuthService } from '../services/auth.service';
-@Component({
-  selector: 'app-aceptar-viaje',
-  templateUrl: './aceptar-viaje.page.html',
-  styleUrls: ['./aceptar-viaje.page.scss'],
-})
-export class AceptarViajePage implements OnInit {
+import { ServicioFirebaseService } from '../services/servicio-firebase.service';
 
-  constructor(private router:Router, private servFire: ServicioFirebaseService, private authSvc: AuthService) {}
+@Component({
+  selector: 'app-seleccionar-viaje',
+  templateUrl: './seleccionar-viaje.page.html',
+  styleUrls: ['./seleccionar-viaje.page.scss'],
+})
+export class SeleccionarViajePage implements OnInit {
+
+  constructor(private router:Router, private authSvc: AuthService, private servFire: ServicioFirebaseService) {}
 
   uid: string;
 
@@ -50,8 +51,8 @@ export class AceptarViajePage implements OnInit {
     });
   }
 
-  finalizarviaje(){
-    this.router.navigate(['/tabs/tab1']);
+  viajeencursop(){
+    this.router.navigate(['/viaje-seleccionado-p']);
   }
 
 }

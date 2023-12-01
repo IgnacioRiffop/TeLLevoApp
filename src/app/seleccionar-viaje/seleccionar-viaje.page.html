@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title></ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="row"></div>
+
+  <div class="row1">
+    <div class="col">
+      Escoge la ruta que más te acomode
+      <div class="col-sm">
+        Estos son los datos del trayecto
+      </div>
+    </div>
+  </div>
+  <br>
+
+  <div style="margin-inline: 40px;">
+    <div *ngFor="let viaje of viajes">
+      <ion-list class="custom-list">
+        <ion-item>
+          Hora: {{ viaje.hora }}
+        </ion-item>
+        <ion-item>
+          Valor: ${{ viaje.valor }}
+        </ion-item>
+        <ion-item>
+          Cupos disponibles: {{ viaje.cupo }}
+        </ion-item>
+        <ion-button color="success" expand="block" (click)="viajeencursop()">Seleccionar</ion-button>
+      </ion-list>
+      <br>
+    </div>
+  </div>
+</ion-content>

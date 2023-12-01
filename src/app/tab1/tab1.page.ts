@@ -100,6 +100,6 @@ export class Tab1Page {
   }
 
   escogerviaje(){
-    this.router.navigate(['/escoger-viaje']);
+    this.router.navigate(['/seleccionar-viaje']);
   }
 }

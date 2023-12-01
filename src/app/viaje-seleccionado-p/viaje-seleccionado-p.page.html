@@ -17,51 +17,45 @@ crossorigin=""/>
 
   <div class="row1">
     <div class="col">
-      Viaje en curso
+      Detalle viaje
       <div class="col-sm">
-        datos del trayecto
+        Estos son los datos de tu trayecto
       </div>
     </div>
   </div>
-
+  
   <div class="row"></div>
 
   <div style="margin-inline: 40px;">
     <div *ngFor="let viaje of viajes">
-    <ion-list class="custom-list">
-      <ion-item>
-        Dirección: {{viaje.direccion}}
-      </ion-item>
-      <ion-item>
-        Hora: {{viaje.hora}}
-      </ion-item>
-      <ion-item>
-        Valor: ${{viaje.valor}}
-      </ion-item>
-      <ion-item>
-        Cupos disponibles: {{viaje.cupo}}
-      </ion-item>
-      <ion-item>
-        Patente: WD-JK-46
-      </ion-item>
-      <ion-item>
-        Modelo: Hyundai Elantra 2019
-      </ion-item>
-      <ion-item>
-        Contacto: 94536207
-      </ion-item>
-    </ion-list>
+      <ion-list class="custom-list">
+        <ion-item>
+          Hora: {{ viaje.hora }}
+        </ion-item>
+        <ion-item>
+          Valor: ${{ viaje.valor }}
+        </ion-item>
+        <ion-item>
+          Cupos disponibles: {{ viaje.cupo }}
+        </ion-item>
+        <ion-item>
+          Patente: WD-JK-46
+        </ion-item>
+        <ion-item>
+          Modelo: Hyundai Elantra 2019
+        </ion-item>
+        <ion-item>
+          Contacto: 94536207
+        </ion-item>
+      </ion-list>
     </div>
     <br>
+    <div id="mapId" style="width: 320px;height: 250px;border: solid 2px black;"></div>
 
     <div style="margin-top: 5%;">
-      <ion-button color="danger" (click)="finalizarviaje()">Finalizar viaje</ion-button>
+      <ion-button color="success" (click)="aceptarviaje()">Aceptar viaje</ion-button>
     </div>
-
   </div>
-
-  
-
 </ion-content>
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
